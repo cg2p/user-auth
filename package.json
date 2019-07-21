@@ -1,0 +1,27 @@
+{
+  "name": "basic-restify-mongodb-server",
+  "version": "1.0.0",
+  "description": "Basic Restify API Server using Node and Mongodb",
+  "main": "index.js",
+  "scripts": {
+    "dev": "NODE_ENV=dev node server.js",
+    "test": "NODE_ENV=test node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cg2p/amen.git"
+  },
+  "keywords": [],
+  "author": "cg2p",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cg2p/amen/issues"
+  },
+  "homepage": "https://github.com/cg2p/amen#readme",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "http": "0.0.0",
+    "mongoose": "^5.6.3",
+    "restify": "^8.3.3"
+  }
+}
