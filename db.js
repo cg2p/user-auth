@@ -6,6 +6,6 @@ const { db: { host, port, name } } = config;
 const connectionString = `mongodb://${host}:${port}/${name}`;
 mongoose.set('useNewUrlParser', true);
 mongoose.connect(connectionString)
-    .then(() => console.log("successfully connected to mongodb"))
+    .then(() => console.log("successfully connected to mongodb at %s", connectionString))
     .catch(err => console.log(err))
 ;

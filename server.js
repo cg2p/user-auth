@@ -1,33 +1,42 @@
 // server.js
-const restify = require('restify');
+const express = require("express");
+const cors = require('cors');
+const bodyParser = require("body-parser");
+const passport = require("passport");
+
 const db = require('./db');
 const config = require('./config');
 
-const server = restify.createServer({
-  name: 'basic-restify-mongodb-server'
-});
+const ping = require("./routes/ping.route");
+const users = require("./routes/user.route");
 
-server.use(restify.plugins.acceptParser(server.acceptable));
-server.use(restify.plugins.queryParser());
-server.use(restify.plugins.bodyParser());
+const server = express();
 
-server.get('/', function (req, res, next) {
-  res.json({
-    success: "true",
-    echo: "ping!" 
-  });
-  return next();
-});
+// Bodyparser middleware
+server.use(
+  bodyParser.urlencoded({
+    extended: false
+  })
+);
+server.use(bodyParser.json());
 
-server.get('/echo/:name', function (req, res, next) {
-  res.send(req.params);
-  return next();
-});
+// CORS accept
+server.use(cors());
+
+// Passport middleware
+server.use(passport.initialize());
+
+// Passport config
+require('./passport')(passport);
+
+// Routes
+server.use("/", ping);
+server.use("/api/users", users);
 
 server.listen(config.app.port, config.app.host, (err) => {
     if (err) {
       return console.log('something bad happened', err)
     }
   
-    console.log('%s ready on %s', server.name, server.url);
+    console.log('the server ready');
   })

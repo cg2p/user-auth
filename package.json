@@ -1,27 +1,38 @@
 {
-  "name": "basic-restify-mongodb-server",
+  "name": "user-auth",
   "version": "1.0.0",
-  "description": "Basic Restify API Server using Node and Mongodb",
+  "description": "Basic login and register authentication service using Node, Restify and Mongodb",
   "main": "index.js",
   "scripts": {
     "dev": "NODE_ENV=dev node server.js",
-    "test": "NODE_ENV=test node server.js"
+    "test": "NODE_ENV=test node server.js",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cg2p/amen.git"
+    "url": "git+https://github.com/cg2p/user-auth.git"
   },
   "keywords": [],
   "author": "cg2p",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cg2p/amen/issues"
+    "url": "https://github.com/cg2p/user-auth/issues"
   },
-  "homepage": "https://github.com/cg2p/amen#readme",
+  "homepage": "https://github.com/cg2p/user-auth#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "dotenv": "^8.0.0",
+    "express": "^4.17.1",
     "http": "0.0.0",
-    "mongoose": "^5.6.3",
-    "restify": "^8.3.3"
-  }
+    "is-empty": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.6.5",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "restify": "^8.3.3",
+    "uuid": "^3.3.2",
+    "validator": "^11.1.0"
+  },
+  "devDependencies": {}
 }

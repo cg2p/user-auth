@@ -11,10 +11,10 @@ const dev = {
  db: {
    host: process.env.DEV_DB_HOST || 'localhost',
    port: parseInt(process.env.DEV_DB_PORT) || 27017,
-   name: process.env.DEV_DB_NAME || 'dev'
+   name: process.env.DEV_DB_NAME || 'user-security'
  },
  keys: {
-  secretKey: process.env.SECRET_API_KEY_DEV || 'hello'
+  secretOrKey: process.env.secretOrKey || 'hello'
  }
 };
 const test = {
@@ -25,10 +25,10 @@ const test = {
  db: {
    host: process.env.TEST_DB_HOST || 'localhost',
    port: parseInt(process.env.TEST_DB_PORT) || 27017,
-   name: process.env.TEST_DB_NAME || 'test'
+   name: process.env.TEST_DB_NAME || 'user-security'
  },
  keys: {
-  secretKey: process.env.SECRET_API_KEY_TEST
+  secretOrKey: process.env.secretOrKey
  }
 };
 
