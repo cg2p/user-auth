@@ -6,10 +6,10 @@ exports.ping = function (req, res) {
 
 //echo
 exports.echo = function (req, res) {
-  //const txt = req.
+  const txt = req.body.echoText;
   res.json({
-    echoText: "echo is" 
+    echoResponse: txt 
   });
-  console.log("/echo fired");
+  console.log("/echo fired with %s", txt);
 };
 

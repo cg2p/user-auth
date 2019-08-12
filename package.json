@@ -4,7 +4,7 @@
   "description": "Basic login and register authentication service using Node, Restify and Mongodb",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=dev node server.js",
+    "dev": "NODE_ENV=dev nodemon server.js",
     "test": "NODE_ENV=test node server.js",
     "start": "node server.js"
   },

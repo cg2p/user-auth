@@ -113,28 +113,28 @@ exports.login = function(req, res) {
 // @route GET login
 // @desc get user proifle
 // @access Public
-exports.profile = function(req, res) {
-    if (!('authorization' in req.headers)) {
-        throw createError(401, 'Authorization header missing')
-      }
-    
-    console.log('profile fires');
-    const auth = req.headers.authorization;
+exports.profile = async (req, res) => {
+if (!('authorization' in req.headers)) {
+    return res.status(401).json({ notAuthorised: "Not Authorised" });
+    }
+
+    const auth = await req.headers.authorization;
     const { userid } = JSON.parse(auth);
-        
+    console.log("userid = %s", userid);
+            
     // Find user by email
     User.findOne({ userid }).then(user => {
         // Check if user exists
         if (!user) {
+            console.log("user profile not found");
             return res.status(404).json({ profilenotfound: "Profile not found" });
         }
-
-        res.json({
+        
+        // Need camelcase in the frontend
+        console.log("profile request success with user.name = %s", user.name);
+        return res.status(200).json({
             success: true,
-            name: user.name
+            name: user.name 
         });
-        console.log('profile requesr success %s'. userid);
-        return res;
-     
     });
 };

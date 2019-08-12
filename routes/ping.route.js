@@ -5,6 +5,6 @@ const router = express.Router();
 const ping_controller = require('../controllers/ping.controller');
 
 router.get('/', ping_controller.ping);
-router.get('/echo', ping_controller.echo);
+router.post('/echo', ping_controller.echo);
 
 module.exports = router;
